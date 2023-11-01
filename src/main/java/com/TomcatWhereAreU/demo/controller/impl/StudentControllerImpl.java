@@ -10,13 +10,18 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping ("/appStudents")
+@RequestMapping ("/api/students/v1")
 public class StudentControllerImpl implements StudentController {
 
     private StudentService studentServiceImpl;
 
     public StudentControllerImpl(StudentServiceImpl studentServiceImpl) {
         this.studentServiceImpl = studentServiceImpl;
+    }
+    @GetMapping("/findAll")
+    @Override
+    public List<Students> findAll() {
+        return studentServiceImpl.findAll();
     }
 
     @GetMapping("/hello/{name}")
@@ -26,11 +31,6 @@ public class StudentControllerImpl implements StudentController {
     }
 
 
-    @GetMapping("/findAll")
-    @Override
-    public List<Students> findAll() {
-        return studentServiceImpl.findAll();
-    }
 
     @GetMapping("/{email}")
     @Override
@@ -58,4 +58,13 @@ public class StudentControllerImpl implements StudentController {
     }
 
 
+    @PutMapping (value = "/updateStudent" , consumes= MediaType.APPLICATION_JSON_VALUE , produces = MediaType.APPLICATION_JSON_VALUE)
+    public Students updateStudent(@RequestBody Students students){
+        return studentServiceImpl.update(students);
+    }
+
+    @DeleteMapping("/{email}")
+    public void delete(@PathVariable("email") String email){
+        studentServiceImpl.delete(email);
+    }
 }
