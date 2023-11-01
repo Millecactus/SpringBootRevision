@@ -32,9 +32,10 @@ public class StudentControllerImpl implements StudentController {
         return studentServiceImpl.findAll();
     }
 
+    @GetMapping("/{email}")
     @Override
-    public Students findById(Integer id) {
-        return studentServiceImpl.findById(id);
+    public Students findByEmail(@PathVariable String email) {
+        return studentServiceImpl.findByEmail(email);
     }
 
     @GetMapping("/ajout")

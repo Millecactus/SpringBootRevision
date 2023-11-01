@@ -17,8 +17,18 @@ public class StudentRepositoryImpl implements StudentRepository {
     public List<Students> findAll() {
        return STUDENTS;
     }
+
+    @Override
+    public Students findById(Integer id) {
+        return STUDENTS.stream()
+                .filter( students -> STUDENTS.get(id).getId().equals(students.getId()))
+                .findFirst()
+                .orElse(null);
+    }
+
     public List<Students> ajouter() {
        STUDENTS2.add(new Students(
+               1,
                "gui",
                "gui",
                "gui"

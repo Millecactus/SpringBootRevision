@@ -36,6 +36,12 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
+    public Students findById(Integer id) {
+        return studentRepository.findById(id);
+    }
+
+
+    @Override
     public Students update(Students students) {
         return studentRepository.update(students);
     }

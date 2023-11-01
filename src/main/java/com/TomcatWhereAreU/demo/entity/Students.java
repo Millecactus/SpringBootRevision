@@ -13,13 +13,23 @@ import java.util.Date;
 @Builder
 
 public class Students {
-    public Students(String firstname, String lastname, String email) {
+    public Students(Integer id,String firstname, String lastname, String email) {
+        this.id=id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
 
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    private Integer id;
     private String firstname;
     private String lastname;
     private String email;

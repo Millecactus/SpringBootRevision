@@ -11,7 +11,7 @@ public interface StudentController {
 
     List<Students> findAll();
 
-    Students findById(Integer id);
+    Students findByEmail(String email);
 
     List<Students> ajouter();
 

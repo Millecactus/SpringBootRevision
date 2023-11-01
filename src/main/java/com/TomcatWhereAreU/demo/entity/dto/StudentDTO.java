@@ -4,15 +4,19 @@ import com.TomcatWhereAreU.demo.Repository.StudentRepository;
 import com.TomcatWhereAreU.demo.entity.Students;
 import lombok.Builder;
 
+import javax.persistence.criteria.CriteriaBuilder;
+
 @Builder
 
 public class StudentDTO {
 
+    private Integer id;
     private String firstname;
     private String lastname;
     private String email;
 
-    public StudentDTO(String firstname, String lastname, String email) {
+    public StudentDTO(Integer id, String firstname, String lastname, String email) {
+        this.id = id;
             this.firstname = firstname;
             this.lastname = lastname;
             this.email = email;
@@ -21,6 +25,15 @@ public class StudentDTO {
     public StudentDTO() {
 
     }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
 
     public String getFirstname() {
         return firstname;
