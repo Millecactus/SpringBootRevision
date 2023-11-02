@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
-@Repository
-public class StudentRepositoryImpl implements StudentRepository {
+
+public class StudentRepositoryImpl  {
 
     private final List<Students> STUDENTS = new ArrayList<>();
 
@@ -18,7 +18,7 @@ public class StudentRepositoryImpl implements StudentRepository {
        return STUDENTS;
     }
 
-    @Override
+
     public Students findById(Integer id) {
         return STUDENTS.stream()
                 .filter( students -> STUDENTS.get(id).getId().equals(students.getId()))

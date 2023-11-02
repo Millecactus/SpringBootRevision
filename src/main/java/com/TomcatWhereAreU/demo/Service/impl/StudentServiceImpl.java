@@ -12,6 +12,7 @@ import java.util.List;
 @Service
 public class StudentServiceImpl implements StudentService {
     public StudentServiceImpl(StudentRepositoryImpl studentRepository) {
+
         this.studentRepository = studentRepository;
     }
     private final StudentRepositoryImpl studentRepository;
@@ -27,7 +28,7 @@ public class StudentServiceImpl implements StudentService {
     }
     @Override
     public Students save(Students students) {
-        return  this.studentRepository.save(students);
+        return this.studentRepository.save(students);
     }
 
     @Override
@@ -40,10 +41,9 @@ public class StudentServiceImpl implements StudentService {
         return studentRepository.findById(id);
     }
 
-
     @Override
     public Students update(Students students) {
-        return studentRepository.update(students);
+        return studentRepository.save(students);
     }
     @Override
     public void delete(String email) {

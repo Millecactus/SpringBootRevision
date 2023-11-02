@@ -2,6 +2,7 @@ package com.TomcatWhereAreU.demo.Service.impl;
 
 import com.TomcatWhereAreU.demo.entity.Students;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.AllArgsConstructor;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
@@ -26,7 +27,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 public class StudentServiceImplTest {
 
+
     @Autowired
+
     private WebApplicationContext webApplicationContext;
     private MockMvc mvc;
     private ObjectMapper mapper = new ObjectMapper();

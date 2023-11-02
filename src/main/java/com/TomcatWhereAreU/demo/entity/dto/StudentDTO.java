@@ -3,16 +3,27 @@ package com.TomcatWhereAreU.demo.entity.dto;
 import com.TomcatWhereAreU.demo.Repository.StudentRepository;
 import com.TomcatWhereAreU.demo.entity.Students;
 import lombok.Builder;
+import lombok.Generated;
 
+import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
 
 @Builder
-
+@Entity
+@Table (name = "students")
 public class StudentDTO {
 
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @Column
     private String firstname;
+
+    @Column
     private String lastname;
+
+    @Column (unique = true)
     private String email;
 
     public StudentDTO(Integer id, String firstname, String lastname, String email) {

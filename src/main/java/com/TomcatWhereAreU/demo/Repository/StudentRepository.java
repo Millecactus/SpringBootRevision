@@ -9,11 +9,10 @@ import java.util.List;
 
 
 
-public interface StudentRepository  {
+public interface StudentRepository extends JpaRepository <Students, Integer>{
 
     List<Students> findAll();
 
-    Students findById(Integer id);
     List<Students> ajouter();
     Students save(Students students);
     Students findByEmail(String email);
